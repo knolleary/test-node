@@ -6,9 +6,9 @@ const currentVersion = require("../../../node-red-docker/package.json").version;
 
 console.log(`Update from ${currentVersion} to ${version}`)
 
-updateFile("../../../node-red-docker/package.json", currentVersion, version);
-updateFile("../../../node-red-docker/docker-custom/package.json", currentVersion, version);
-updateFile("../../../node-red-docker/README.md", currentVersion, version);
+updateFile(__dirname+"/../../../node-red-docker/package.json", currentVersion, version);
+updateFile(__dirname+"/../../../node-red-docker/docker-custom/package.json", currentVersion, version);
+updateFile(__dirname+"/../../../node-red-docker/README.md", currentVersion, version);
 
 
 function updateFile(path,from,to) {
