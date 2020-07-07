@@ -10,12 +10,10 @@ updateFile(__dirname+"/../../../node-red-docker/package.json", currentVersion, v
 updateFile(__dirname+"/../../../node-red-docker/docker-custom/package.json", currentVersion, version);
 updateFile(__dirname+"/../../../node-red-docker/README.md", currentVersion, version);
 
+console.log(`::set-env name=newVersion::${version}`);
 
 function updateFile(path,from,to) {
-    console.log(path+"\n----------------------")
     let contents = fs.readFileSync(path,"utf8");
     contents = contents.replace(new RegExp(from.replace(/\./g,"\\."),"g"), to);
-    console.log(contents);
-    console.log("\n----------------------")
     fs.writeFileSync(path, contents);
 }
