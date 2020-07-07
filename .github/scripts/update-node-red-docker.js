@@ -5,3 +5,17 @@ const version = require("../../package.json").version;
 const currentVersion = require("../../../node-red-docker/package.json").version;
 
 console.log(`Update from ${currentVersion} to ${version}`)
+
+updateFile("../../../node-red-docker/package.json", currentVersion, version);
+updateFile("../../../node-red-docker/docker-custom/package.json", currentVersion, version);
+updateFile("../../../node-red-docker/README.md", currentVersion, version);
+
+
+function updateFile(path,from,to) {
+    console.log(path+"\n----------------------")
+    const contents = fs.readFileSync(path);
+    contents = contents.replace(new RegExp(from.replace(/\./g,"\\."),"g"), to);
+    console.log(contents);
+    console.log("\n----------------------")
+    fs.writeFileSync(path, contents);
+}
