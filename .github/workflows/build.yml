@@ -9,10 +9,9 @@ jobs:
     name: 'Update node-red-docker image'
     runs-on: ubuntu-latest
     steps:
-      - name: Check out node-red-docker repository
+      - name: Check out node-red repository
         uses: actions/checkout@v2
         with:
-            repository: 'node-red/node-red-docker'
             path: 'node-red'
       - name: Check out node-red-docker repository
         uses: actions/checkout@v2
