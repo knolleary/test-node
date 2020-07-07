@@ -13,7 +13,7 @@ updateFile(__dirname+"/../../../node-red-docker/README.md", currentVersion, vers
 
 function updateFile(path,from,to) {
     console.log(path+"\n----------------------")
-    const contents = fs.readFileSync(path);
+    const contents = fs.readFileSync(path,"utf8");
     contents = contents.replace(new RegExp(from.replace(/\./g,"\\."),"g"), to);
     console.log(contents);
     console.log("\n----------------------")
