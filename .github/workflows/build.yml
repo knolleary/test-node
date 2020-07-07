@@ -18,5 +18,7 @@ jobs:
         with:
             repository: 'node-red/node-red-docker'
             path: 'node-red-docker'
-      - name: Update files
-        uses: ./node-red/.github/actions/
+      - uses: actions/setup-node@v1
+        with:
+            node-version: '12'
+      -run: node ./node-red/.github/scripts/update-node-red-docker.js
