@@ -22,3 +22,7 @@ jobs:
         with:
             node-version: '12'
       - run: node ./node-red/.github/scripts/update-node-red-docker.js
+        id: updateFiles
+      - name: Check outputs
+        run: |
+          echo "Version number - ${{ steps.updateFiles.outputs.newVersion }}"
