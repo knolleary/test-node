@@ -25,4 +25,5 @@ jobs:
         id: updateFiles
       - name: Check outputs
         run: |
-          echo "Version number - ${{ steps.updateFiles.outputs.newVersion }}"
+          echo "Version number - ${{ newVersion }}"
+          echo "Version number - ${ newVersion }"
