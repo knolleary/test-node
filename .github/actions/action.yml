@@ -1,0 +1,6 @@
+# action.yml
+name: 'Update node-red-docker to latest version'
+description: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

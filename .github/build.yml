@@ -1,0 +1,17 @@
+name: PublishDockerImage
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  generate:
+    name: 'Update node-red-docker image'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out node-red-docker repository
+        uses: actions/checkout@v2
+        with:
+            repository: 'node-red/node-red-docker'
+      - name: Update files
+        uses: ./.github/actions/
