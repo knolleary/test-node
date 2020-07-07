@@ -1,0 +1,14 @@
+{
+    "name"          : "test-node",
+    "version"       : "0.1.0",
+    "description"   : "A Test Node-RED node that doesn't do anything.",
+    "dependencies"  : {
+    },
+    "license": "Apache-2.0",
+    "keywords": [ "node-red", "random" ],
+    "node-red"      : {
+        "nodes"     : {
+            "random": "random.js"
+        }
+    }
+}
