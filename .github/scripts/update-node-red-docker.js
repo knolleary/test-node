@@ -1,16 +1,21 @@
 const fs = require("fs");
 
-const version = require("../../package.json").version;
+const newVersion = require("../../package.json").version;
+
+if (!/^\d+\.\d+\.\d+$/.test(newVersion)) {
+    console.log(`Not updating for a non-stable release - ${newVersion}`);
+    process.exit(0);
+}
 
 const currentVersion = require("../../../node-red-docker/package.json").version;
 
-console.log(`Update from ${currentVersion} to ${version}`)
+console.log(`Update from ${currentVersion} to ${newVersion}`)
 
-updateFile(__dirname+"/../../../node-red-docker/package.json", currentVersion, version);
-updateFile(__dirname+"/../../../node-red-docker/docker-custom/package.json", currentVersion, version);
-updateFile(__dirname+"/../../../node-red-docker/README.md", currentVersion, version);
+updateFile(__dirname+"/../../../node-red-docker/package.json", currentVersion, newVersion);
+updateFile(__dirname+"/../../../node-red-docker/docker-custom/package.json", currentVersion, newVersion);
+updateFile(__dirname+"/../../../node-red-docker/README.md", currentVersion, newVersion);
 
-console.log(`::set-env name=newVersion::${version}`);
+console.log(`::set-env name=newVersion::${newVersion}`);
 
 function updateFile(path,from,to) {
     let contents = fs.readFileSync(path,"utf8");
