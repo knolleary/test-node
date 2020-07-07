@@ -21,4 +21,4 @@ jobs:
       - uses: actions/setup-node@v1
         with:
             node-version: '12'
-      -run: node ./node-red/.github/scripts/update-node-red-docker.js
+      - run: node ./node-red/.github/scripts/update-node-red-docker.js
