@@ -1,9 +1,14 @@
 const fs = require("fs");
 
 const newVersion = require("../../package.json").version;
-console.log("GITHUB_REF",process.env.GITHUB_REF);
+
 if (!/^\d+\.\d+\.\d+$/.test(newVersion)) {
     console.log(`Not updating for a non-stable release - ${newVersion}`);
+    process.exit(0);
+}
+
+if (process.env.GITHUB_REF !== "refs/tags/"+newVersion) {
+    console.log(`GITHUB_REF doesn't match the package.json version: ${process.env.GITHUB_REF} !== ${newVersion}`);
     process.exit(0);
 }
 
