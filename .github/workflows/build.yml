@@ -30,6 +30,7 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           path: 'node-red-docker'
+          commit-message: 'Bump to ${{ env.newVersion }}'
           title: '🚀 Update to Node-RED ${{ env.newVersion }} release'
           body: |
             Updates the Node-RED Docker repo for the ${{ env.newVersion }} release.
