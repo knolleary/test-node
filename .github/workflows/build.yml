@@ -16,7 +16,7 @@ jobs:
       - name: Check out node-red-docker repository
         uses: actions/checkout@v2
         with:
-            repository: 'knolleary/node-red-docker'
+            repository: 'node-red/node-red-docker'
             path: 'node-red-docker'
       - uses: actions/setup-node@v1
         with:
