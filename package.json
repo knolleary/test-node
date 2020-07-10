@@ -1,6 +1,6 @@
 {
     "name"          : "test-node",
-    "version"       : "0.2.23",
+    "version"       : "0.2.24",
     "description"   : "A Test Node-RED node that doesn't do anything.",
     "dependencies"  : {
     },
